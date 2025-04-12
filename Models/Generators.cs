@@ -1,4 +1,6 @@
-namespace Models;
+using EliTEBA.Models;
+
+namespace EliteBA.Models;
 
 public class Generators
 {
@@ -22,7 +24,7 @@ public class Generators
      * Returns the generated id (int)
      */
     public static int GenerateCustomerId() => _customerIdCounter++;
-    
+
     /*
      * This method handles the generation of transaction Ids.
      * This would be our unique identifier for each transaction created.
@@ -30,7 +32,7 @@ public class Generators
      * Returns the generated id (int)
      */
     public static int GenerateTransactionId() => _transactionIdCounter++;
-    
+
     /*
      * This method handles the generation of account numbers.
      * The method generates a random 10 digits string and compares with existing accounts list to ensure it is unique.

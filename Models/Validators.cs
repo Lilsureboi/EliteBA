@@ -1,13 +1,12 @@
 using System.Text.RegularExpressions;
 
-namespace Models;
-
+namespace EliteBA.Models;
 public class Validators
 {
-   /*
-    * Validates that the email input is not empty and in valid format via Regex.
-    * Returns the email if valid, or a 'null' if invalid.
-    */
+    /*
+     * Validates that the email input is not empty and in valid format via Regex.
+     * Returns the email if valid, or a 'null' if invalid.
+     */
     public static string? ValidateEmail(string email)
     {
         if (!string.IsNullOrWhiteSpace(email) ||
