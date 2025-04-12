@@ -23,7 +23,7 @@ public class Transaction
     }
 
     public string? Narration { get; set; }
-    public DateTime Date { get; set; }
+    public DateTime DateCreated { get; set; } 
     public int? RecipientAccountId { get; set; } // For transfers (not applicable to deposit and withdrawal)
     public decimal BalanceAfter { get; set; }
 }
