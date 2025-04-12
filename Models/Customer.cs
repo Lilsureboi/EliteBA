@@ -6,7 +6,7 @@ public class Customer
 {
     private string _email;
     private string _phoneNumber;
-    
+
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
 
@@ -15,13 +15,13 @@ public class Customer
         get => _email;
         set
         {
-            if (!Regex.IsMatch(value, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            var validatedEmail = Validators.ValidateEmail(value);
+            if (validatedEmail == null)
             {
-                Console.WriteLine("Invalid email format.Please try again.");
                 return;
             }
 
-            _email = value;
+            _email = validatedEmail;
         }
     }
 
@@ -30,14 +30,17 @@ public class Customer
         get => _phoneNumber;
         set
         {
-            if (!Regex.IsMatch(value, @"^0(70[1-9]|80[2-9]|81[0-9]|90[1-9])[0-9]{7}$"))
+            var validatedPhone = Validators.ValidatePhoneNumber(value);
+            if (validatedPhone == null)
             {
-                Console.WriteLine("Invalid phone number format.Please use acceptable Nigerian format.");
+                return;
             }
+
+            _phoneNumber = validatedPhone;
         }
     }
-    
+
     public string? Address { get; set; }
-    
+
     public int AccountId { get; set; }
 }
