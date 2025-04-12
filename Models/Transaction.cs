@@ -2,36 +2,27 @@ namespace Models;
 
 public class Transaction
 {
-    private double _amount;
     public int TransactionId { get; set; }
     public int AccountId { get; set; }
     public TransactionTypeEnum TransactionType { get; set; }
-
-    public double Amount
-    {
-        get => _amount;
-        set
-        {
-            if (value < 0)
-            {
-                Console.WriteLine("Amount cannot be negative.");
-                return;
-            }
-
-            _amount = value;
-        }
-    }
-
+    public double Amount { get; set; }
     public string? Narration { get; set; }
-    public DateTime DateCreated { get; set; } 
-    public int? RecipientAccountId { get; set; } // For transfers (not applicable to deposit and withdrawal)
-    public decimal BalanceAfter { get; set; }
+    public DateTime DateCreated { get; set; }
+
+    public int
+        RecipientAccountId
+    {
+        get;
+        set;
+    } // For transfers (not applicable to deposit and withdrawal) - @EJ, please read up the tutor's review on this. Consult him for proper usage.
+
+    public decimal
+        BalanceAfter { get; set; } // helper property - e.g. BalanceAfter = Account.Balance + transaction.Amount
 }
 
 public enum TransactionTypeEnum
 {
     Deposit,
     Withdrawal,
-    TransferIn,
-    TransferOut
+    Transfer
 }
