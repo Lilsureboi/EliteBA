@@ -2,7 +2,7 @@
 
 public class Account
 {
-    private double _balance;
+    private double _balance = 0;
 
     public int AccountId { get; set; } 
     public required string AccountNumber { get; set; }
@@ -12,15 +12,7 @@ public class Account
     public double Balance
     {
         get => _balance;
-        set
-        {
-            if (value < 0)
-            {
-                Console.WriteLine("Balance cannot be negative");
-                return;
-            }
-            _balance = value;
-        }
+        set => _balance = value;
     }
 
     public DateTime DateOpened { get; set; }
