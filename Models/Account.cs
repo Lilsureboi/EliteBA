@@ -1,24 +1,26 @@
-﻿namespace Models;
+﻿using EliteBA.Models;
+
+namespace EliTEBA.Models;
 
 public class Account
 {
     public int AccountId { get; set; }
     public required string AccountNumber { get; set; }
     public required string AccountName { get; set; }
-    public AccountTypeEnum AccountType { get; set; }
+    public AccountType AccountType { get; set; }
     public double Balance { get; set; } = 0.00;
     public DateTime DateOpened { get; set; }
-    public AccountStatusEnum AccountStatus { get; set; }
+    public AccountStatus AccountStatus { get; set; }
     public List<Transaction> Transactions { get; set; } = [];
 }
 
-public enum AccountTypeEnum
+public enum AccountType
 {
     Savings,
     Current
 }
 
-public enum AccountStatusEnum
+public enum AccountStatus
 {
     Active,
     Dormant,

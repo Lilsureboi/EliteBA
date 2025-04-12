@@ -1,4 +1,4 @@
-namespace Models;
+namespace EliteBA.Models;
 
 public class Transaction
 {
@@ -17,7 +17,8 @@ public class Transaction
     } // For transfers (not applicable to deposit and withdrawal) - @EJ, please read up the tutor's review on this. Consult him for proper usage.
 
     public decimal
-        BalanceAfter { get; set; } // helper property - e.g. BalanceAfter = Account.Balance + transaction.Amount
+        BalanceAfter
+    { get; set; } // helper property - e.g. BalanceAfter = Account.Balance + transaction.Amount
 }
 
 public enum TransactionTypeEnum

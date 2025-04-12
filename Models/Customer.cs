@@ -1,6 +1,4 @@
-using System.Text.RegularExpressions;
-
-namespace Models;
+namespace EliteBA.Models;
 
 public class Customer
 {
