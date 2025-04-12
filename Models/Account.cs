@@ -15,9 +15,7 @@ public class Account
 public enum AccountTypeEnum
 {
     Savings,
-    Current,
-    FixedDeposit,
-    Domiciliary
+    Current
 }
 
 public enum AccountStatusEnum
