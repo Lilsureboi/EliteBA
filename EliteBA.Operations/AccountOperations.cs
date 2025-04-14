@@ -16,10 +16,10 @@ public class AccountOperations
         Random random = new Random();
         string accountNumber = "";
 
-        for (int i = 0; i < 10; i++)
+        do
         {
-            accountNumber += random.Next(0, 9);
-        }
+            for (int i = 0; i < 10; i++) accountNumber += random.Next(0, 9);
+        } while (_accounts.singleOrDefault(account => account.AccountNumber == accountNumber));
 
         return accountNumber;
     }
