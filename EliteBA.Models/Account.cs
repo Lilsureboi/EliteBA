@@ -3,8 +3,8 @@
 public class Account
 {
     public int AccountId { get; set; }
-    public required string AccountNumber { get; set; }
-    public required string AccountName { get; set; }
+    public string AccountNumber { get; set; }
+    public string AccountName { get; set; }
     public AccountType AccountType { get; set; }
     public double Balance { get; set; } = 0.00;
     public DateTime DateOpened { get; set; }
