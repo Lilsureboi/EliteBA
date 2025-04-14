@@ -42,5 +42,6 @@ public class Customer
     }
 
     public string? Address { get; set; }
+    public int AccountId { get; set; }
     public Account Account { get; set; }
 }
