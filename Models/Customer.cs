@@ -7,8 +7,9 @@ public class Customer
     private string _email;
     private string _phoneNumber;
 
-    public required string FirstName { get; set; }
-    public required string LastName { get; set; }
+    public int CustomerId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
 
     public required string Email
     {
