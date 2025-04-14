@@ -19,7 +19,7 @@ public class AccountOperations
         do
         {
             for (int i = 0; i < 10; i++) accountNumber += random.Next(0, 9);
-        } while (_accounts.SingleOrDefault(account => account.AccountNumber == accountNumber));
+        } while (_accounts.Any(account => account.AccountNumber == accountNumber));
 
         return accountNumber;
     }
