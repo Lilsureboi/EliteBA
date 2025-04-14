@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteBA.Models", "Models\El
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteBA.Utilities", "EliteBA.Utilities\EliteBA.Utilities.csproj", "{23EC79D0-3672-4344-8D0D-85407E47D041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operations", "Operations\Operations.csproj", "{52463EAE-25EE-4577-BBE3-971A987A8B28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteBA.Operations", "EliteBA.Operations\EliteBA.Operations.csproj", "{52463EAE-25EE-4577-BBE3-971A987A8B28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

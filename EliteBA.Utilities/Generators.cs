@@ -1,6 +1,5 @@
 namespace EliteBA.Utilities;
 
-
 public class Generators
 {
     private static int _accountIdCounter;

@@ -1,6 +1,4 @@
-﻿using EliteBA.Models;
-
-namespace EliteBA.Models;
+﻿namespace EliteBA.Models;
 
 public class Account
 {
