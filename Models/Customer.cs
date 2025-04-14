@@ -1,3 +1,5 @@
+using EliteBA.Utilities;
+
 namespace EliteBA.Models;
 
 public class Customer
