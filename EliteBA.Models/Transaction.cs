@@ -8,8 +8,21 @@ public class Transaction
     public double Amount { get; set; }
     public string? Narration { get; set; }
     public DateTime DateCreated { get; set; }
-    public int RecipientAccountId { get; set;} // For transfers (not applicable to deposit and withdrawal) - @EJ, please read up the tutor's review on this. Consult him for proper usage.
+    public bool IsTransfer;
 
+    private int _recipientAccountId;
+    public int RecipientAccountId
+    {
+        get => _recipientAccountId;
+        set
+        {
+            do
+            {
+                Console.WriteLine("Recipient account ID must be greater than 0 for transfers");
+            } while (IsTransfer && value <= 0);
+            _recipientAccountId = value;
+        }
+    }
 }
 
 public enum TransactionType
