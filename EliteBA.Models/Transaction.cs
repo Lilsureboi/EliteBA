@@ -11,14 +11,14 @@ public class Transaction
     public bool IsTransfer;
 
     private int _recipientAccountId;
-    public int RecipientAccountId
+    public int RecipientAccountId // for transfers only
     {
         get => _recipientAccountId;
         set
         {
             do
             {
-                Console.WriteLine("Recipient account ID must be greater than 0 for transfers");
+                Console.WriteLine("Recipient account ID cannot be zero for transfers");
             } while (IsTransfer && value <= 0);
             _recipientAccountId = value;
         }
