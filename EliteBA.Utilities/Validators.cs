@@ -1,6 +1,7 @@
 using System.Text.RegularExpressions;
 
-namespace EliteBA.Models;
+namespace EliteBA.Utilities;
+
 public class Validators
 {
     /*

@@ -1,3 +1,5 @@
+using EliteBA.Utilities;
+
 namespace EliteBA.Models;
 
 public class Customer
@@ -5,8 +7,9 @@ public class Customer
     private string _email;
     private string _phoneNumber;
 
-    public required string FirstName { get; set; }
-    public required string LastName { get; set; }
+    public int CustomerId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
 
     public required string Email
     {
@@ -39,6 +42,6 @@ public class Customer
     }
 
     public string? Address { get; set; }
-
     public int AccountId { get; set; }
+    public Account Account { get; set; }
 }

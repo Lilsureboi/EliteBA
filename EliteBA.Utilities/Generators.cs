@@ -1,15 +1,12 @@
-using EliTEBA.Models;
-
-namespace EliteBA.Models;
+namespace EliteBA.Utilities;
 
 public class Generators
 {
     private static int _accountIdCounter;
     private static int _customerIdCounter;
     private static int _transactionIdCounter;
-    private static readonly Random _random = new Random();
 
-    /*
+    /**
      * This method handles the generation of account Ids.
      * This would be our unique identifier for each account created.
      * The method increments the Account.AccountId by 1 for each account created.
@@ -17,7 +14,7 @@ public class Generators
      */
     public static int GenerateAccountId() => _accountIdCounter++;
 
-    /*
+    /**
      * This method handles the generation of customer Ids.
      * This would be our unique identifier for each customer created.
      * The method increments the Customer.CustomerId by 1 for each customer created.
@@ -25,28 +22,11 @@ public class Generators
      */
     public static int GenerateCustomerId() => _customerIdCounter++;
 
-    /*
+    /**
      * This method handles the generation of transaction Ids.
      * This would be our unique identifier for each transaction created.
      * The method increments the Transaction.TransactionId by 1 for each transaction created.
      * Returns the generated id (int)
      */
     public static int GenerateTransactionId() => _transactionIdCounter++;
-
-    /*
-     * This method handles the generation of account numbers.
-     * The method generates a random 10 digits string and compares with existing accounts list to ensure it is unique.
-     * Returns the generated 10 digits (string)
-     */
-
-    public static string GenerateAccountNumber(List<Account> existingAccounts)
-    {
-        string number;
-        do
-        {
-            number = _random.Next(0, 999999999).ToString("10D");
-        } while (existingAccounts.Any(account => account.AccountNumber == number));
-
-        return number;
-    }
 }
