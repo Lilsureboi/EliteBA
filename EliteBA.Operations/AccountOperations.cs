@@ -24,7 +24,20 @@ public class AccountOperations
         
         return accountNumber;
     }
-    
+
+    public double ViewAccountBalance(string accountNumber)
+    {
+        var account = Tables.accounts.SingleOrDefault(a => a.AccountNumber == accountNumber);
+
+        if (account != null)
+        {
+            return account.Balance;
+        }
+        else
+        {
+            return 0.00;
+        }
+    } 
     
     /// <summary>
     /// This Method creates a new bank account using the details provided in the CreateAccountDto.
@@ -48,5 +61,4 @@ public class AccountOperations
         Tables.accounts.Add(account);
         return account;
     }
-
 }
