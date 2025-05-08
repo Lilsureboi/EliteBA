@@ -1,10 +1,13 @@
-﻿using EliteBA.DB;
+﻿using System.Transactions;
+using EliteBA.DB;
 using EliteBA.Models;
 using EliteBA.DTO;
 
 
-namespace EliteBA.Operations;
+using ELITEBA.DTOs;
+using Transaction = EliteBA.Models.Transaction;
 
+namespace EliteBA.Operations;
 public class AccountOperations
 {
     /**
@@ -24,7 +27,49 @@ public class AccountOperations
         
         return accountNumber;
     }
+    /// <summary>
+    /// enable transfer feautures
+    /// </summary>
+    /// <param name="transferDetails"></param>
+    /// <returns></returns>
+    public static string Transfer(TransferDTO transferDetails) 
+    {
+        var senderAccInput = Tables.accounts.SingleOrDefault(x => x.AccountNumber == transferDetails.senderAcc);
+        if (senderAccInput == null) 
+        {
+            return $"{transferDetails.senderAcc} does not exist";
+        }
+        var receiverAcc = Tables.accounts.SingleOrDefault(x => x.AccountNumber == transferDetails.receiverAcc);
+        if (receiverAcc == null) 
+        {
+            return $"{transferDetails.receiverAcc} does not exist";
+        }
+        Transaction trans = new Transaction
+        {
+            AccountId = senderAccInput.AccountId,
+            TransactionType = TransactionType.Transfer,
+            Amount = transferDetails.amount,
+            Narration = transferDetails.narration,
+            DateCreated = DateTime.Now,
+        };
+        if (senderAccInput.Balance < transferDetails.amount) 
+        {
+            trans.IsTransfer = false;
+            Tables.transactions.Add(trans);
+            return $"Insufficient fund";
+        }
+        senderAccInput.Balance -= transferDetails.amount;
+        receiverAcc.Balance +=transferDetails.amount;
+       trans.IsTransfer = true;
+        Tables.transactions.Add( trans );  
+        return null;
 
+    }
+   
+ }
+        
+    
+=======
     public double ViewAccountBalance(string accountNumber)
     {
         var account = Tables.accounts.SingleOrDefault(a => a.AccountNumber == accountNumber);
@@ -62,3 +107,4 @@ public class AccountOperations
         return account;
     }
 }
+
